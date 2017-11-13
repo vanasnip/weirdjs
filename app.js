@@ -1,21 +1,41 @@
-// Primitive type
+// Operators are functions!
 
-// Is a type of data that respresents 
-//a single value that is not an object!
+// Special function that is syntactically
+// (written) different or differently
 
-//Undefined : represents lack of existance,
-// coder should never set a variable to "undefined"
-// but it certainly can be tested for.
+// generally operators take two parameters and
+// return one result
 
-// Null : represents lack of existance
-// coder can set a variable as null.
+var a  = 3 + 4; // how does JS know to add?
+/*
+    its as though i declared a function
+        function add(a,b) // except 
+    instead of 'add' i used '+'
+        function +(a,b) {
+            return // add the two #s
+        }
 
-//boolean : true or false
+*/
+// JS provides us with infix notation where
+// the function name sites between parameters
 
-// number : Only one type of numeric respresentation
-// in javascript which is a Floating point number, 
-// this means theres always a decimal point attached
+console.log(a);
 
-// string : squence of characters
+//other operators, infix notation functions 
+var b = 4 - 3;
+console.log(b);
 
-// symbol : used in es6 ...to be continued
+var c =  4 > 3; //greater than operator 
+// infix notation function return boolean
+console.log(c);
+
+// operators are special types of function that take
+// in two parameters either side thanks to infix
+// notations.
+
+// ***********************************************
+// there are things going on inside infix notation
+// functions that are important to know about
+// in part because of how this impacts how JS
+// facilitates dynamic types as dont know ahead 
+// of time what types are being used.
