@@ -1,15 +1,15 @@
-// Operators precedence and associativity
+// Coercion
+// converting a value from one type to another
 
-//associativity
-// when operators have similar precence,
-// which direction will they run
-// right associativity or left associativity 
+// happens quite often in JS because its 
+// dynamically typed
 
-var a = 32, b = 3, c = 4;
-
-a = b = c;
-
+var a = 1 + 2;
 console.log(a);
-console.log(b);
-console.log(c);
 
+var b = 'hello ' + 'world';
+console.log(b);
+
+var c = '1' + 2; 
+console.log(c); // output : 12
+//this means the value 2 was coerced into a string
