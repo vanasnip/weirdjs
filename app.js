@@ -1,13 +1,19 @@
-// Existance and Boolean
+// Default values
 
-var a;
+function greet(name){
+    name = name || '<Your name here>';
+    // here JS will return the first value that is coercable
+    // to true. if the first value is undefined 
+    // then the second value will be returned
 
-// goes to the internet and looks for a value
-// a = null;
-a = 0; // zero converts to false.
-
-if(a || a === 0){ // taking advantage of coercion
-    console.log('something is there');
-} else {
-    console.log('nothing is there');
+    // this also has an impact on 
+    // 0 || 1 returns 1
+    // undefined || 'hello' returns hello
+    // null || 'hello' returns hello
+    // "" || "hello" returns hello
+    console.log('Hello ' + name);
 }
+// calling it without a parameter
+greet('ivan');
+greet();//this wont throw error, hello undefined
+
