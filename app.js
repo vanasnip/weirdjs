@@ -1,6 +1,11 @@
-// Framesworks aside
+// Objects and bracket notation | computed member access
 
-console.log(libraryName);
+var person = new Object();
 
-// see lib2.js
-// & lib1.js
+person['firstname'] = 'Ivan';
+person['lastname'] = 'Mams';
+
+var firstNameProperty = 'firstname';
+
+console.log(person);
+console.log(person[firstNameProperty]);
