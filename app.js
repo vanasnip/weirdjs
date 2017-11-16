@@ -1,18 +1,21 @@
-// Objects and dot notation
+// Objects literals
 
-var person = new Object();
+var Ivan ={
+    firstname: 'Ivan', 
+    lastname: 'Mams',
+    address: {
+        street: '111 Main St.',
+        city: 'New York',
+        state: 'NY'
+    }
+};
 
-person['firstname'] = 'Ivan';
-person['lastname'] = 'Mams';
+function greet(person){
+    console.log(`Hi ${person.firstname}`);
+}
+greet(Ivan);
+greet({ //objects created on the fly...
+    firstname:'Lucy', 
+    lastname:'Lu'
+});
 
-console.log(person.firstname);
-console.log(person.lastname);
-
-person.address = new Object();
-person.address.street = "111 Main St.";
-person.address.city = 'New york';
-person.address.state = 'NY';
-
-console.log(person.address.street);
-console.log(person.address.city);
-console.log(person['address']['state']);
