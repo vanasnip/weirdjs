@@ -1,18 +1,24 @@
-// framework aside
-//name spaces
-// a container for variable and functions,
-// typicall to keep variables and functions with the same name sparate;
+// Objects and Json are different;
+//json doesnt allow functions as values
+var objectLiteral = {
+    firstname: 'Ivan',
+    isAProgrammer: true
+}
 
 
-var greet = 'Hello!';
-var greet = 'Hola';
-console.log(greet);
+var myJSON = { // stricter rules
+    "firstname": "Mary", //property names have to be in ""
+    "isAProgrammer": true
+}
 
-var english = {};
-var spanish = {};
+// all json is valid object literal notation
+// bit not all object literal notation is valid json
+// gotta have those property names in quotes!
 
-english.greet = 'hello!';
-spanish.greet = 'Hola!';
+// because of json's popularity JS comes with json bells
 
-console.log(english);
+var OLNtoJSON = JSON.stringify(objectLiteral);
+console.log(OLNtoJSON);
 
+var JSONtoOLN = JSON.parse('{"firstname": "Mary", "isAProgrammer": true}');
+console.log(JSONtoOLN);
