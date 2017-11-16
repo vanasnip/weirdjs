@@ -1,21 +1,18 @@
-// Objects literals
+// framework aside
+//name spaces
+// a container for variable and functions,
+// typicall to keep variables and functions with the same name sparate;
 
-var Ivan ={
-    firstname: 'Ivan', 
-    lastname: 'Mams',
-    address: {
-        street: '111 Main St.',
-        city: 'New York',
-        state: 'NY'
-    }
-};
 
-function greet(person){
-    console.log(`Hi ${person.firstname}`);
-}
-greet(Ivan);
-greet({ //objects created on the fly...
-    firstname:'Lucy', 
-    lastname:'Lu'
-});
+var greet = 'Hello!';
+var greet = 'Hola';
+console.log(greet);
+
+var english = {};
+var spanish = {};
+
+english.greet = 'hello!';
+spanish.greet = 'Hola!';
+
+console.log(english);
 
