@@ -57,3 +57,4 @@ log(3);
 log('hello');
 log({key:'value'});
 log2(function(){console.log('hi');});
+// first class functions 
