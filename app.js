@@ -1,23 +1,25 @@
-// white space
+//immediately invoked function expressions
 
-var 
-    // first name of the person
-    firstname, 
-    
-    //last name of the person
-    lastname, 
-    
-    //the language
-    //can be 'en' or 'es'
-    language;
-
-var person = {
-    // the first name
-    firstame: 'Ivano',
-
-    //the last name
-    // (always required)
-    lastname: 'Doe'
+//function statement
+function greet(name){
+    console.log('hello', name);
 }
+greet('Ivano');
 
-console.log(person);
+// using a function expression
+var greetFunc = function(name){
+    console.log('hello', name);
+}
+greetFunc('Ivano');
+
+//using an immediately invoked function expression (IIFE)
+var greeting = function(name){
+   // console.log('hello', name);
+    return 'hello' + name;
+}('ivano');//invokes the function 
+
+3;
+
+(function(name){
+    console.log('hello', name);
+})('Ivano');
