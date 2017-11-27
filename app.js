@@ -1,13 +1,23 @@
-//Dangerous Aside
-// reads your code and trys to determine what you intend to do.
-//Dangerous aside : always put in semi collons;
-//syntax parser sees when you hit enter,
-// if there is no semi-collon it replaces enter character
-// automatic semi collon insertion is BAD!!!
-function getPerson(){
-    return {
-        firstname: 'ivan'
-    };
+// white space
+
+var 
+    // first name of the person
+    firstname, 
+    
+    //last name of the person
+    lastname, 
+    
+    //the language
+    //can be 'en' or 'es'
+    language;
+
+var person = {
+    // the first name
+    firstame: 'Ivano',
+
+    //the last name
+    // (always required)
+    lastname: 'Doe'
 }
 
-console.log(getPerson());
+console.log(person);
