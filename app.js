@@ -1,24 +1,13 @@
-// no function overloading in JS
-// function of the same name that has different number os params
-
-function greet(firstname, lastname, language){
-    language = language || 'en';
-    if (language === 'en') {
-        console.log('Hello', firstname, lastname);
-    }
-    if (language === 'es') {
-        console.log('Hola', firstname, lastname)
-    }
+//Dangerous Aside
+// reads your code and trys to determine what you intend to do.
+//Dangerous aside : always put in semi collons;
+//syntax parser sees when you hit enter,
+// if there is no semi-collon it replaces enter character
+// automatic semi collon insertion is BAD!!!
+function getPerson(){
+    return {
+        firstname: 'ivan'
+    };
 }
 
-function greetEng(firstname, lastname){
-    greet(firstname, lastname, 'en');
-}
-function greetEsp(firstname, lastname){
-    greet(firstname, lastname, 'es');
-}
-
-greetEng('Ivano','Mams', 'en');
-greetEsp('Ignacio','Suares', 'es');
-
-// creating simpler functions 
+console.log(getPerson());
