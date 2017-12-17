@@ -1,27 +1,60 @@
-// Closures & callbacks
+// Call(), apply(), bind()
+//properties & methods on a function
 
-function sayHiLater(){
-    var greeting = 'Hi';
-    setTimeout(function(){
-        console.log(greeting);
-    }, 3000);
+//NAME - optional can be anonymous
+//CODE - invokable with ()
+
+//call()
+//apply()
+//bind()
+
+// all three call, apply, bind methods relate to 'this'
+
+var person = {
+    firstname: 'john',
+    lastname: 'doe',
+    getFullName: function(){
+        var fullname = this.firstname + ' ' + this.lastname;
+        return fullname;
+    }
 }
 
-sayHiLater();
+var logName = function(lang1, lang2){
+    console.log('logged: ' + this.getFullName());
+    console.log('Arguments:', lang1, lang2);
+    console.log('-------------------');
+}
+var logPersonName = logName.bind(person);
 
-// $('button').click(function(){
-//     //example of use of function expressions
-//     //and first class functions
-// });
+logPersonName('en');
 
-//Call back function, call a function and give it a function, and when its done it calls given function
+logName.call(person, 'en','es');
 
-function tellMeWhenDone(callback){
-    var a = 1000;
-    var b = 2000;
+logName.apply(person, ['es','en']); //requires array
 
-    callback();
+
+//----------------use cases 1------------------//
+
+// function borrowing
+var person2 = {
+    firstname: 'Jane',
+    lastname: 'Doe'
+    //we dont have a getFullName() so we will borrow it
 }
 
-tellMeWhenDone(function(){console.log('I am done.')});
-tellMeWhenDone(function(){console.log('I am done once again.')});
+var borrowedFunc = person.getFullName.apply(person2);
+
+console.log(borrowedFunc, '\n*---------- borrowed----------*');
+
+//----------------use cases 2------------------//
+// function currying
+
+function multiply(a,b){
+    return a*b;
+}
+
+var double = multiply.bind(this, 2);
+console.log(double(4) + '\n*---------- curried----------*');
+
+var tripple = multiply.bind(this, 3);
+console.log(tripple(4) + '\n*---------- curried----------*');
