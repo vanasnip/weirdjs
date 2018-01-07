@@ -1,60 +1,51 @@
-// Call(), apply(), bind()
-//properties & methods on a function
+// Functional Programming
+var arr1 = [1,2,3,4];
 
-//NAME - optional can be anonymous
-//CODE - invokable with ()
+var arr2 = [];
 
-//call()
-//apply()
-//bind()
+for(var i=0; i<arr1.length; i++){
+    arr2.push(arr1[i]*2);
+}
 
-// all three call, apply, bind methods relate to 'this'
+console.log(arr2 +"\n-----------------");
+//---more reusable way of getting on with it---
 
-var person = {
-    firstname: 'john',
-    lastname: 'doe',
-    getFullName: function(){
-        var fullname = this.firstname + ' ' + this.lastname;
-        return fullname;
+
+function mapForEach(arr, fn){
+    var newArr = [];
+    for(var i=0; i<arr.length; i++){
+        newArr.push(fn(arr[i]));
     }
+    return newArr;
 }
 
-var logName = function(lang1, lang2){
-    console.log('logged: ' + this.getFullName());
-    console.log('Arguments:', lang1, lang2);
-    console.log('-------------------');
-}
-var logPersonName = logName.bind(person);
-
-logPersonName('en');
-
-logName.call(person, 'en','es');
-
-logName.apply(person, ['es','en']); //requires array
-
-
-//----------------use cases 1------------------//
-
-// function borrowing
-var person2 = {
-    firstname: 'Jane',
-    lastname: 'Doe'
-    //we dont have a getFullName() so we will borrow it
+function tripple(num){
+    return num*3;
 }
 
-var borrowedFunc = person.getFullName.apply(person2);
-
-console.log(borrowedFunc, '\n*---------- borrowed----------*');
-
-//----------------use cases 2------------------//
-// function currying
-
-function multiply(a,b){
-    return a*b;
+function greaterThan2(num){
+    return num > 2;
 }
 
-var double = multiply.bind(this, 2);
-console.log(double(4) + '\n*---------- curried----------*');
+var trippleFruit = mapForEach(arr1, tripple);
+console.log(trippleFruit);
 
-var tripple = multiply.bind(this, 3);
-console.log(tripple(4) + '\n*---------- curried----------*');
+var checkFruitNo = mapForEach(arr1, greaterThan2);
+console.log(checkFruitNo);
+
+
+var checkPastLimit = function(limiter, item){
+    return item > limiter;
+}
+
+var fourLimiter = mapForEach(arr1,checkPastLimit.bind(this, 1));
+console.log(fourLimiter);
+
+var checkPastLimitSimplified = function(limiter){
+    return function(limiter, item){
+        return item > limiter;
+    }.bind(this, limiter);
+}
+
+var fourLimiterSimplified = mapForEach(arr1, checkPastLimitSimplified(1));
+console.log(fourLimiterSimplified)
