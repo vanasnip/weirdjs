@@ -1,42 +1,19 @@
-//Building Object, setting the prototype specifically in Functions Constructors
-//Functions Constructors, 'new and the history of JS
+//Built in function constructors
+var a = new Number(3);
+var b = new String('John');
+var c = new Date('08/01/2018');
 
-function Person(first, last){
-    this.firstname = first;
-    this.lastname = last;
+String.prototype.isLenghtGreaterThan = function(limit){
+    return this.length > limit;
 }
+console.log(b.isLenghtGreaterThan(3)); //true
 
-//all functions get the .prototype property when used as a contructor to creat objects using new only
-Person.prototype.getFullName = function(){
-    return this.firstname + ' ' + this.lastname;
+Number.prototype.isPositive = function(){
+    return this > 0;
 }
+//3.isPositive() wont work because JS wont convert numbers into objects automatically 
+//like the convert strings into objects automatically...
+//for this to work we must invoke the new key word...fortunately we already did with a
+console.log(a.isPositive());
 
-
-//Function COnstructors:
-// a normal function that is used to create objects
-
-var john = new Person('John','Doe'); //new keyword is an opperator
-//new opperator creats a new empty object then the rest attaches to the rest
-console.log(john);
-
-var jane = new Person('Jane', 'Doe');
-console.log(jane);
-
-Person.prototype.getFormalFullName = function(){
-    return this.lastname + ', ' + this.firstname;
-}
-//different ways to construct objects
-
-//Properties are fine to sit in the function constructor, 
-//however methods which are functions but more importantly are objects
-//take up space in memory and it is very expensive computationally to have 1000 instances of objects, 
-//each of which has multiple object /slash/ methods....what to do?
-//better to have it once on the prototype and have it accessible to all instances via the prototype chian.
-
-//########################################## DANGEROUS ASSIDE ##########################################
-
-//the constructor is still just a functions so if you forget the new keyword all your 
-//objects created from the constructor will be undefined
-
-// all functions that are constructors have capital letters, this might help desern the missing new keyword
-
+//DO NOT USE THESE UNLESS YOU HAVE TO!!! THEY JUST LOOK TOO MUCH LIKE PRIMITIVE TYPES WHEN THEY AREN'T, THEY ARE OBJECTS!
