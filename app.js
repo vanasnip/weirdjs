@@ -1,42 +1,40 @@
-//Object-Oriented javascript and prototypal Inheritance
-//classical vs prototypal inheritance
-
-//classical is whats currently best known and popular || how it has been done for a long time
-//a way of sharing propeties and methods || not the only method ...very verbose
-
-//prototypal inheritance
-//simple, flexible, extensible and easy to understand - not perfect
-
-//Inheritance: one object get access to the propeties and methods of another object
-
+//Reflection & Extend
+//Reflection: An object can look at itself, listing and changing its properties and methods
 var person = {
     firstname: 'Default',
     lastname: 'Default',
-    getFullName: function(){
-        var fullname = this.firstname + ' ' + this.lastname;
-        console.log(fullname);
-        return fullname;
+    getFullName : function(){
+        return this.firstname + ' ' + this.lastname;
     }
 }
 
 var john = {
     firstname: 'John',
-    lastname : 'Doe'
+    lastname: 'doe'
 }
 
-//Doing something you should never ever do....this is just to illustrate...its a performance problem..>>
-john.__proto__ = person;//<<< never ever do this!!!! __proto__ is named such that you'd never accidentally type this
-john.getFullName(); //o:John Doe
+// don't do this EVER! For demo purposes only!!!
+john.__proto__ = person;
 
+for (var prop in john){
+    if(john.hasOwnProperty(prop)){
+        console.log(prop + ': ' + john[prop]);
+    }
+}
 
 var jane = {
-    firstname: 'Jane'
+    address: '111 Main St',
+    getFormalFullName: function(){
+        return this.lastname + ', ' + this.firstname;
+    }
 }
 
-jane.__proto__ = person;//<<< never ever do this!!!!
-jane.getFullName();//o: Jane Default
+var jim = {
+    getFirstName: function(){
+        return firstName;
+    }
+}
 
+_.extend(john, jane, jim);
 
-
-
-
+console.log(john);
