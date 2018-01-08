@@ -17,3 +17,8 @@ Number.prototype.isPositive = function(){
 console.log(a.isPositive());
 
 //DO NOT USE THESE UNLESS YOU HAVE TO!!! THEY JUST LOOK TOO MUCH LIKE PRIMITIVE TYPES WHEN THEY AREN'T, THEY ARE OBJECTS!
+var numA = 3;
+var numB = new Number(3);
+
+var test1 = (numA == numB);//o: true
+var test2 = (numA === numB); //o: false 
