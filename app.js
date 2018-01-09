@@ -1,4 +1,3 @@
-//Jquery Deep Dive
+var g = G$('John', 'Doe');
 
-var q = $("ul.people li");
-console.log(q);
+console.log(g);
